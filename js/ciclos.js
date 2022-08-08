@@ -1,4 +1,4 @@
-///Tienda Online
+///Tienda Online\
 
 function ingresoDatos() {
   alert("Bienvenida/o a la tienda online Bali");
@@ -22,48 +22,55 @@ function catalogoProductos() {
   );
   switch (productoCatalogo) {
     case "1":
-      return "Vela aroma vainilla";
+      return listaProductos[0];
     case "2":
-      return "Sahumerios aroma coco";
+      return listaProductos[1];
     case "3":
-      return "Difusor aroma lima";
+      return listaProductos[2];
     case "4":
-      return "Humidificador";
+      return listaProductos[3];
   }
 }
 
-function mostrarPrecio(producto) {
-  if (producto == "Vela aroma vainilla") {
-    return 800;
-  } else if (producto == "Sahumerios aroma coco") {
-    return 650;
-  } else if (producto == "Difusor aroma lima") {
-    return 780;
-  } else if (producto == "Humidificador") {
-    return 1200;
+class ProductosTienda {
+  constructor(id, nombre, precio) {
+    this.id = id;
+    this.nombre = nombre;
+    this.precio = precio;
   }
 }
 
-function cobroFinal(producto, precio) {
+const listaProductos = [];
+
+function agregandoArray() {
+  listaProductos.push(new ProductosTienda(1, "Vela aroma vainilla", 800));
+  listaProductos.push(new ProductosTienda(2, "Sahumerio aroma coco", 650));
+  listaProductos.push(new ProductosTienda(3, "Difusor aroma lima", 780));
+  listaProductos.push(new ProductosTienda(4, "Humidificador", 1200));
+}
+
+function cobroFinal(ProductosTienda) {
   alert(
     "Seleccionó el siguiente producto : " +
-      producto.toLowerCase() +
+      ProductosTienda.nombre.toLowerCase() +
       "Precio $ " +
-      precio
+      ProductosTienda.precio
   );
   let pago = prompt("Con cuánto va a abonar ? ");
-  if (pago > precio) {
+  if (pago > ProductosTienda.precio) {
     alert(
-      "Su vuelto es $" + (pago - precio) + ",Muchas gracias por su compra!"
+      "Su vuelto es $" +
+        (pago - ProductosTienda.precio) +
+        ",Muchas gracias por su compra!"
     );
-  } else if (pago == precio) {
+  } else if (pago == ProductosTienda.precio) {
     alert("Muchas gracias por abonar exacto!");
   }
-  if (pago < precio)
+  if (pago < ProductosTienda.precio)
     alert("Quitaremos el producto de tu carrito por falta de pago!");
 }
 
 ingresoDatos();
+agregandoArray();
 let productoSeleccionado = catalogoProductos();
-let precioProducto = mostrarPrecio(productoSeleccionado);
-cobroFinal(productoSeleccionado, precioProducto);
+cobroFinal(productoSeleccionado);
