@@ -20,16 +20,10 @@ function catalogoProductos() {
     productoCatalogo != 3 &&
     productoCatalogo != 4
   );
-  switch (productoCatalogo) {
-    case "1":
-      return listaProductos[0];
-    case "2":
-      return listaProductos[1];
-    case "3":
-      return listaProductos[2];
-    case "4":
-      return listaProductos[3];
-  }
+  let productoEncontrado = listaProductos.find(
+    (producto) => producto.id == productoCatalogo
+  );
+  return productoEncontrado;
 }
 
 class ProductosTienda {
