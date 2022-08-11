@@ -2,8 +2,8 @@
 
 function ingresoDatos() {
   alert("Bienvenida/o a la tienda online Bali");
-  let nombreUsuario = prompt("Ingrese su nombre");
-  while (nombreUsuario === "") {
+  let nombreUsuario = prompt("Por favor ingrese su nombre:");
+  while (nombreUsuario === "" || nombreUsuario === null) {
     nombreUsuario = prompt("Para continuar debe ingresar su nombre:");
   }
 }
@@ -12,7 +12,7 @@ function catalogoProductos() {
   let productoCatalogo;
   do {
     productoCatalogo = prompt(
-      " Productos disponibles: 1- Vela aroma vainilla  2- Sahumerios aroma coco  3- Difusor aroma lima  4- Humidificador"
+      " Productos disponibles: \n1- Vela aroma vainilla  \n2- Sahumerios aroma coco  \n3- Difusor aroma lima  \n4- Humidificador"
     );
   } while (
     productoCatalogo != 1 &&
@@ -46,8 +46,9 @@ function agregandoArray() {
 function cobroFinal(ProductosTienda) {
   alert(
     "Seleccionó el siguiente producto : " +
-      ProductosTienda.nombre.toLowerCase() +
-      "Precio $ " +
+      ProductosTienda.nombre.toUpperCase() +
+      "" +
+      "\nPRECIO $ " +
       ProductosTienda.precio
   );
   let pago = prompt("Con cuánto va a abonar ? ");
@@ -55,7 +56,7 @@ function cobroFinal(ProductosTienda) {
     alert(
       "Su vuelto es $" +
         (pago - ProductosTienda.precio) +
-        ",Muchas gracias por su compra!"
+        "\nMuchas gracias por su compra!"
     );
   } else if (pago == ProductosTienda.precio) {
     alert("Muchas gracias por abonar exacto!");
