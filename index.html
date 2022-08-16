@@ -11,47 +11,26 @@
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
         crossorigin="anonymous"
       />
-    <script src="js/ciclos.js"></script>
+    <script defer src="js/ciclos.js"></script>
+    <script defer src="js/dom.js"></script>
     <title>Tienda online Bali</title>
 </head>
 <body>
     <body data-theme="light">
         <article class="container">
-            <h1 class="text-decoration-underline text-center">Tienda online Bali</h1>
+            <h1 class="text-center" id= "tituloPrincipal">Tienda online Bali</h1>
+            <div id="subtitulo">
+            </div>
             <table class="table">
                 <thead>
                   <tr>
                     <th scope="col">ID</th>
                     <th scope="col">PRODUCTO</th>
-                    <th scope="col">AROMA</th>
                     <th scope="col">PRECIO</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Vela de cera de soja</td>
-                    <td>Vainilla</td>
-                    <td>$ 800</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Sahumerio</td>
-                    <td>Coco</td>
-                    <td>$ 650</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Difusor</td>
-                    <td>Lima</td>
-                    <td>$ 780</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">4</th>
-                    <td>Humidificador</td>
-                    <td>-</td>
-                    <td>$ 1200</td>
-                  </tr>
+                <tbody id = tablaProductos>
+
                 </tbody>
               </table>
             <footer>

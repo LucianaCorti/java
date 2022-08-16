@@ -38,9 +38,11 @@ const listaProductos = [];
 
 function agregandoArray() {
   listaProductos.push(new ProductosTienda(1, "Vela aroma vainilla", 800));
+  listaProductos.push(new ProductosTienda(1, "Vela aroma sándalo", 800));
   listaProductos.push(new ProductosTienda(2, "Sahumerio aroma coco", 650));
   listaProductos.push(new ProductosTienda(3, "Difusor aroma lima", 780));
   listaProductos.push(new ProductosTienda(4, "Humidificador", 1200));
+  listaProductos.push(new ProductosTienda(5, "Sahumador", 1550));
 }
 
 function cobroFinal(ProductosTienda) {
