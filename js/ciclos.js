@@ -12,13 +12,15 @@ function catalogoProductos() {
   let productoCatalogo;
   do {
     productoCatalogo = prompt(
-      " Productos disponibles: \n1- Vela aroma vainilla  \n2- Sahumerios aroma coco  \n3- Difusor aroma lima  \n4- Humidificador"
+      " Productos disponibles: \n1- Vela aroma vainilla \n2- Vela aroma sándalo \n3- Sahumerios aroma coco  \n4- Difusor aroma lima  \n5- Humidificador \n6- Sahumador"
     );
   } while (
     productoCatalogo != 1 &&
     productoCatalogo != 2 &&
     productoCatalogo != 3 &&
-    productoCatalogo != 4
+    productoCatalogo != 4 &&
+    productoCatalogo != 5 &&
+    productoCatalogo != 6
   );
   let productoEncontrado = listaProductos.find(
     (producto) => producto.id == productoCatalogo
@@ -38,11 +40,11 @@ const listaProductos = [];
 
 function agregandoArray() {
   listaProductos.push(new ProductosTienda(1, "Vela aroma vainilla", 800));
-  listaProductos.push(new ProductosTienda(1, "Vela aroma sándalo", 800));
-  listaProductos.push(new ProductosTienda(2, "Sahumerio aroma coco", 650));
-  listaProductos.push(new ProductosTienda(3, "Difusor aroma lima", 780));
-  listaProductos.push(new ProductosTienda(4, "Humidificador", 1200));
-  listaProductos.push(new ProductosTienda(5, "Sahumador", 1550));
+  listaProductos.push(new ProductosTienda(2, "Vela aroma sándalo", 800));
+  listaProductos.push(new ProductosTienda(3, "Sahumerio aroma coco", 650));
+  listaProductos.push(new ProductosTienda(4, "Difusor aroma lima", 780));
+  listaProductos.push(new ProductosTienda(5, "Humidificador", 1200));
+  listaProductos.push(new ProductosTienda(6, "Sahumador", 1550));
 }
 
 function cobroFinal(ProductosTienda) {
