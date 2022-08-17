@@ -1,33 +1,3 @@
-///Tienda Online\
-
-function ingresoDatos() {
-  alert("Bienvenida/o a la tienda online Bali");
-  let nombreUsuario = prompt("Por favor ingrese su nombre:");
-  while (nombreUsuario === "" || nombreUsuario === null) {
-    nombreUsuario = prompt("Para continuar debe ingresar su nombre:");
-  }
-}
-
-function catalogoProductos() {
-  let productoCatalogo;
-  do {
-    productoCatalogo = prompt(
-      " Productos disponibles: \n1- Vela aroma vainilla \n2- Vela aroma sándalo \n3- Sahumerios aroma coco  \n4- Difusor aroma lima  \n5- Humidificador \n6- Sahumador"
-    );
-  } while (
-    productoCatalogo != 1 &&
-    productoCatalogo != 2 &&
-    productoCatalogo != 3 &&
-    productoCatalogo != 4 &&
-    productoCatalogo != 5 &&
-    productoCatalogo != 6
-  );
-  let productoEncontrado = listaProductos.find(
-    (producto) => producto.id == productoCatalogo
-  );
-  return productoEncontrado;
-}
-
 class ProductosTienda {
   constructor(id, nombre, precio) {
     this.id = id;
@@ -47,29 +17,4 @@ function agregandoArray() {
   listaProductos.push(new ProductosTienda(6, "Sahumador", 1550));
 }
 
-function cobroFinal(ProductosTienda) {
-  alert(
-    "Seleccionó el siguiente producto : " +
-      ProductosTienda.nombre.toUpperCase() +
-      "" +
-      "\nPRECIO $ " +
-      ProductosTienda.precio
-  );
-  let pago = prompt("Con cuánto va a abonar ? ");
-  if (pago > ProductosTienda.precio) {
-    alert(
-      "Su vuelto es $" +
-        (pago - ProductosTienda.precio) +
-        "\nMuchas gracias por su compra!"
-    );
-  } else if (pago == ProductosTienda.precio) {
-    alert("Muchas gracias por abonar exacto!");
-  }
-  if (pago < ProductosTienda.precio)
-    alert("Quitaremos el producto de tu carrito por falta de pago!");
-}
-
-ingresoDatos();
 agregandoArray();
-let productoSeleccionado = catalogoProductos();
-cobroFinal(productoSeleccionado);

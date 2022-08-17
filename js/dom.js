@@ -17,7 +17,6 @@ function crearTablaProductos() {
         <td>${producto.precio}</td>
         </tr>`;
   });
-  listaProductos.sort();
 }
 
 crearTablaProductos();
