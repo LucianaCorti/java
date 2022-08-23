@@ -53,6 +53,13 @@
   justify-content: center;
 }
 
+.carritoCompras{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
 /* FORM */
 .contact_form {
   width: 460px;
