@@ -6,6 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- FUENTE -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+      </style>
+          <!-- ICONOS -->
+    <script
+    src="https://kit.fontawesome.com/bec9071d34.js"
+    crossorigin="anonymous"
+  ></script>
+      <!-- LOGO -->
+      <link
+      rel="shortcut icon"
+      href="https://res.cloudinary.com/dvhvt4yk0/image/upload/v1661274519/pngtree-hand-painted-green-plant-leaves-transparent-bottom-free-image_1192836_fpw1rc.jpg"
+    />
         <!-- BOOTSTRAP -->
         <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
@@ -14,34 +29,27 @@
         crossorigin="anonymous"
       />
       <!-- JS -->
-    <script defer src="js/ciclos.js"></script>
     <script defer src="js/dom.js"></script>
-    <script defer src="js/eventos.js"></script>
-    <title>Tienda online Bali</title>
+    <title>Tienda Bali</title>
 </head>
 <body>
+  <header class="logoHeader">
+    <a href="./index.html"><img src="https://res.cloudinary.com/dvhvt4yk0/image/upload/v1660940366/Logo_hogar_y_deco_organico_gris_zuadar.png" class="imgLogo" alt="Logo Bali "></a>
+    <p></p>
+  </header>
     <body data-theme="light">
         <article class="container">
             <h1 class="text-center" id= "tituloPrincipal">Tienda online Bali</h1>
             <div id="subtitulo">
             </div>
-            <!-- Tabla productos -->
-            <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">PRODUCTO</th>
-                    <th scope="col">PRECIO</th>
-                  </tr>
-                </thead>
-                <tbody id = tablaProductos>
-                </tbody>
-              </table>
-              <button type="button" class="btn btn-dark m-2 float-end ">COMPRAR PRODUCTOS</button>
+            <!-- Cards -->
+      <div class="divCards cardProductos">
+          </div>
+            </div>
               <!-- Formulario -->
               <div class="contact_form">
                 <div class="formulario">      
-                    <h3>Te quedaron dudas? Escribinos!</h3>
+                    <h3 class="text-center">Te quedaron dudas? Escribinos!</h3>
                       <form action="submeter-formulario.php" method="post">       
                             <p>
                               <label for="nombre" class="colocar_nombre">Nombre
@@ -61,11 +69,29 @@
                               </label>                     
                               <textarea name="introducir_mensaje" class="texto_mensaje" id="mensaje" required="obligatorio" placeholder="Comentario"></textarea> 
                             </p>                    
-                          <button type="button" class="btn btn-dark m-3 float-end ">Enviar</button>
+                          <button type="button" class="btn btn-dark m-3 float-end">Enviar</button>
                       </form>
                 </div>  
               </div>
-            <footer>
+              <footer class="footer">
+                <div class="divFooter">
+                  <ul class="ulIconos">
+                    <li>
+                      <a href="https://www.instagram.com"
+                        ><i class="fa-brands fa-instagram icono"></i
+                      ></a>
+                    </li>
+                    <li>
+                      <a href="https://www.facebook.com"
+                        ><i class="fa-brands fa-facebook icono"></i
+                      ></a>
+                    </li>
+                    <li>
+                      <a href="https://www.tiktok.com"
+                        ><i class="fa-brands fa-tiktok icono"></i
+                      ></a>
+                    </li>
+                  </ul>
             </footer>
         </article>
         <script

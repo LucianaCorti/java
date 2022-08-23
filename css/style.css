@@ -1,10 +1,59 @@
-.fondoColor1 {
-  background-color: #c2b8a3;
-}
-.fondoColor2 {
-  background-color: #53bf9d;
+* {
+  font-family: "Bebas Neue", cursive;
 }
 
+/* Header */
+
+.logoHeader {
+  display: flex;
+  justify-content: center;
+}
+
+#tituloPrincipal {
+  text-decoration: underline;
+  color: #5f7161;
+  font-size: 3rem;
+}
+
+#subtitulo {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+/* CARDS */
+.card-img-top {
+  max-width: 20rem;
+}
+
+.card {
+  display: flex;
+  border: 30rem;
+  text-align: center;
+  max-width: 20rem;
+  margin: 1rem;
+}
+
+.card-text {
+  max-width: 12rem;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.divCards {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* FORM */
 .contact_form {
   width: 460px;
   height: auto;
@@ -12,7 +61,6 @@
   border-radius: 10px;
   padding-top: 30px;
   padding-bottom: 20px;
-  background-color: #fbfbfb;
   padding-left: 30px;
 }
 
@@ -52,28 +100,44 @@ span {
   color: #0e0e0e;
 }
 
-h1 {
-  font-size: 39px;
-  text-align: letf;
-  padding-bottom: 20px;
-  color: #ab4493;
-}
-
-h3 {
-  font-size: 16px;
-  padding-bottom: 30px;
-  color: #0e0e0e;
-}
-
-p {
-  font-size: 14px;
-  color: #0e0e0e;
-}
-
 ::-webkit-input-placeholder {
   color: black;
 }
 
 ::-webkit-textarea-placeholder {
   color: black;
+}
+
+.fondoColor1 {
+  background-color: #c2b8a3;
+}
+.fondoColor2 {
+  background-color: #dad5ab;
+}
+
+/* Footer */
+.footer .divFooter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  border-top: solid 1px #5f7161;
+}
+
+.footer a {
+  list-style: none;
+  color: black;
+  text-decoration: none;
+}
+.footer .icono {
+  font-size: 2rem;
+  color: #5f7161;
+  margin: 0.1rem;
+  padding: 0.5rem;
+}
+
+.footer .ulIconos {
+  display: flex;
+  margin: 1.3rem;
+  list-style: none;
 }
