@@ -106,6 +106,19 @@ function agregandoArray() {
 }
 
 agregandoArray();
+
+function ordenarProductos (){
+  listaProductos.sort ((a,b) => {
+    if (a.nombre>b.nombre){
+      return 1
+    }if (a.nombre<b.nombre){
+      return -1
+  }
+}
+  )
+}
+ordenarProductos ();
+
 //Cards
 function crearTablaProductos() {
   const tarjeta = document.querySelector(".cardProductos");
@@ -159,12 +172,13 @@ function agregarAlCarrito() {
   carritoCompras.forEach((producto) => {
     carritoProductos.innerHTML += `<div class="card">
     <h5 class="card-title text-decoration-underline m-2">Carrito Compras</h5>
-  <img class="card-img-top" src=${producto.foto}>
-  <div class="card-body">
+    <img class="card-img-top" src=${producto.foto}>
+    <div class="card-body">
     <h5 class="card-title text-decoration-underline">${producto.nombre}</h5>
     <p class="card-text">${producto.descripcion}</p>
     <p class="card-text">Cantidad agregada:${producto.cantidad}</p>
     <button type="button" class="btn btn-dark m-3 fs-6" id="btnCardsBorrar${producto.id}">Quitar del carrito</button>
+    <button type="button" class="btn btn-dark m-3 fs-6" id="btnCardsEliminar${producto.id}">-</button>
   </div>
   </div>
   `;
