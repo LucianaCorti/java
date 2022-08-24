@@ -106,18 +106,18 @@ function agregandoArray() {
 }
 
 agregandoArray();
-
-function ordenarProductos (){
-  listaProductos.sort ((a,b) => {
-    if (a.nombre>b.nombre){
-      return 1
-    }if (a.nombre<b.nombre){
-      return -1
-  }
+//Productos ordenados
+function ordenarProductos() {
+  listaProductos.sort((a, b) => {
+    if (a.nombre > b.nombre) {
+      return 1;
+    }
+    if (a.nombre < b.nombre) {
+      return -1;
+    }
+  });
 }
-  )
-}
-ordenarProductos ();
+ordenarProductos();
 
 //Cards
 function crearTablaProductos() {
@@ -164,7 +164,6 @@ function carrito(producto) {
   agregarAlCarrito();
 }
 
-
 const carritoProductos = document.querySelector(".carritoCompras");
 
 function agregarAlCarrito() {
@@ -178,7 +177,6 @@ function agregarAlCarrito() {
     <p class="card-text">${producto.descripcion}</p>
     <p class="card-text">Cantidad agregada:${producto.cantidad}</p>
     <button type="button" class="btn btn-dark m-3 fs-6" id="btnCardsBorrar${producto.id}">Quitar del carrito</button>
-    <button type="button" class="btn btn-dark m-3 fs-6" id="btnCardsEliminar${producto.id}">-</button>
   </div>
   </div>
   `;
@@ -200,6 +198,35 @@ function quitarDelCarrito() {
 }
 
 //Evento Form
+
+function crearForm() {
+  const formDatos = document.querySelector(".contact_form");
+  formDatos.innerHTML = ` <div class="formulario">      
+    <h3 class="text-center">Te quedaron dudas? Escribinos!</h3>
+      <form action="submeter-formulario.php" method="post">       
+            <p>
+              <label for="nombre" class="colocar_nombre">Nombre
+                <span class="obligatorio">*</span>
+              </label>
+                <input type="text" name="introducir_nombre" id="nombre" required="obligatorio" placeholder="Nombre">
+            </p>
+            <p>
+              <label for="email" class="colocar_email">Email
+                <span class="obligatorio">*</span>
+              </label>
+                <input type="email" name="introducir_email" id="email" required="obligatorio" placeholder="Email">
+            </p>   
+            <p>
+              <label for="mensaje" class="colocar_mensaje">Mensaje
+                <span class="obligatorio">*</span>
+              </label>                     
+              <textarea name="introducir_mensaje" class="texto_mensaje" id="mensaje" required="obligatorio" placeholder="Comentario"></textarea> 
+            </p>                    
+          <button type="button" class="btn btn-dark m-3 float-end" id="botonEnviar">Enviar</button>
+      </form>
+</div>`;
+}
+crearForm();
 const fomularios = document.querySelectorAll("input");
 
 function fondoInput() {
