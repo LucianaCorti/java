@@ -149,7 +149,7 @@ function funcionBotones() {
   });
 }
 
-let carritoCompras = [];
+let carritoCompras = JSON.parse(localStorage.getItem("carritoCompras")) || [];
 
 function carrito(producto) {
   let agregado = carritoCompras.some((prod1) => prod1.id === producto.id);
@@ -160,7 +160,6 @@ function carrito(producto) {
     let prod2 = carritoCompras.find((prod2) => prod2.id === producto.id);
     prod2.cantidad++;
   }
-  console.log(carritoCompras);
   agregarAlCarrito();
 }
 
@@ -181,8 +180,10 @@ function agregarAlCarrito() {
   </div>
   `;
   });
+  localStorage.setItem("carritoCompras", JSON.stringify(carritoCompras));
   quitarDelCarrito();
 }
+agregarAlCarrito();
 
 function quitarDelCarrito() {
   carritoCompras.forEach((producto) => {
@@ -197,8 +198,7 @@ function quitarDelCarrito() {
   });
 }
 
-//Evento Form
-
+//Form
 function crearForm() {
   const formDatos = document.querySelector(".contact_form");
   formDatos.innerHTML = ` <div class="formulario">      
@@ -221,14 +221,49 @@ function crearForm() {
                 <span class="obligatorio">*</span>
               </label>                     
               <textarea name="introducir_mensaje" class="texto_mensaje" id="mensaje" required="obligatorio" placeholder="Comentario"></textarea> 
-            </p>                    
+            </p> 
+            <button type="button" class="btn btn-dark m-3 float-end" id="botonBorrar">Borrar datos</button>                   
           <button type="button" class="btn btn-dark m-3 float-end" id="botonEnviar">Enviar</button>
       </form>
 </div>`;
 }
 crearForm();
-const fomularios = document.querySelectorAll("input");
 
+//Local Storage Form
+const nombre = document.querySelector("#nombre");
+const email = document.querySelector("#email");
+const mensaje = document.querySelector("#mensaje");
+const boton = document.querySelector("#botonEnviar");
+const botonBorrar = document.querySelector("#botonBorrar");
+
+function datosForm() {
+  localStorage.setItem("nombre formulario", nombre.value);
+  localStorage.setItem("email formulario", email.value);
+  localStorage.setItem("mensaje formulario", mensaje.value); 
+  borrarDatos(); 
+}
+datosForm();
+boton.addEventListener("click", datosForm);
+
+//Recuperar datos Form
+function recuperarDatos() {
+  nombre.value = localStorage.getItem("nombre formulario");
+  email.value = localStorage.getItem("email formulario");
+  mensaje.value = localStorage.getItem("mensaje formulario");
+}
+recuperarDatos();
+
+//Borrar datos
+function borrarDatos() {
+  nombre.value = "";
+  email.value = "";
+  mensaje.value = "";
+}
+borrarDatos();
+botonBorrar.addEventListener("click", borrarDatos);
+
+//Fondos input
+const fomularios = document.querySelectorAll("input");
 function fondoInput() {
   fomularios.forEach((formulario) => {
     formulario.addEventListener("click", () => {
@@ -239,5 +274,4 @@ function fondoInput() {
     });
   });
 }
-
 fondoInput();
