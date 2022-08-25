@@ -98,7 +98,7 @@ function agregandoArray() {
     new ProductosTienda(
       "https://res.cloudinary.com/dvhvt4yk0/image/upload/v1660934916/pim-chayada-ko7osEfy4xo-unsplash_1_xai8nd.jpg",
       "Difusor",
-      "Varillas aromatizantes + Envase de vidrio",
+      "Varillas aromatizantes",
       860,
       9
     )
@@ -161,6 +161,26 @@ function carrito(producto) {
     prod2.cantidad++;
   }
   agregarAlCarrito();
+  confirmacion();
+}
+//Confirmacion de productos en el carrito
+function confirmacion() {
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 1500,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener("mouseenter", Swal.stopTimer);
+      toast.addEventListener("mouseleave", Swal.resumeTimer);
+    },
+  });
+
+  Toast.fire({
+    icon: "success",
+    title: "Agregado al carrito",
+  });
 }
 
 const carritoProductos = document.querySelector(".carritoCompras");
@@ -181,6 +201,7 @@ function agregarAlCarrito() {
   `;
   });
   localStorage.setItem("carritoCompras", JSON.stringify(carritoCompras));
+
   quitarDelCarrito();
 }
 agregarAlCarrito();
@@ -239,11 +260,31 @@ const botonBorrar = document.querySelector("#botonBorrar");
 function datosForm() {
   localStorage.setItem("nombre formulario", nombre.value);
   localStorage.setItem("email formulario", email.value);
-  localStorage.setItem("mensaje formulario", mensaje.value); 
-  borrarDatos(); 
+  localStorage.setItem("mensaje formulario", mensaje.value);
+  borrarDatos();
 }
 datosForm();
 boton.addEventListener("click", datosForm);
+boton.addEventListener("click", confirmacionEmail);
+
+function confirmacionEmail() {
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 1500,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener("mouseenter", Swal.stopTimer);
+      toast.addEventListener("mouseleave", Swal.resumeTimer);
+    },
+  });
+
+  Toast.fire({
+    icon: "success",
+    title: "Mensaje Enviado",
+  });
+}
 
 //Recuperar datos Form
 function recuperarDatos() {
