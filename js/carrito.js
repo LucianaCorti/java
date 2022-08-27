@@ -5,7 +5,7 @@ function agregarAlCarrito() {
   carritoCompras.forEach((producto) => {
     carritoProductos.innerHTML += `  <tbody>
     <tr>
-    <div>
+    <div class="divCarritoCompras">
       <td>${producto.nombre}</td>
       </div>
       <div>

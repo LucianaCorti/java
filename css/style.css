@@ -175,5 +175,9 @@ span {
 
 .fotoCarrito{
   margin-top: 0.5rem;
-  max-width: 3.5rem;
+  max-width: 4rem;
+}
+
+.divCarritoCompras{
+  display: flex;
 }
