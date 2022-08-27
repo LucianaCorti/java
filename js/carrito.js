@@ -3,17 +3,22 @@ const carritoProductos = document.querySelector(".carritoCompras");
 function agregarAlCarrito() {
   carritoProductos.innerHTML = "";
   carritoCompras.forEach((producto) => {
-    carritoProductos.innerHTML += `<div class="card">
-      <h5 class="card-title text-decoration-underline m-2">Carrito Compras</h5>
-      <img class="card-img-top" src=${producto.foto}>
-      <div class="card-body">
-      <h5 class="card-title text-decoration-underline">${producto.nombre}</h5>
-      <p class="card-text">${producto.descripcion}</p>
-      <p class="card-text">Cantidad agregada:${producto.cantidad}</p>
-      <button type="button" class="btn btn-dark m-3 fs-6" id="btnCardsBorrar${producto.id}">Quitar del carrito</button>
-      <button type="button" class="btn btn-dark m-3 fs-6" id="btnCardsRestar${producto.id}">Restar</button>
+    carritoProductos.innerHTML += `  <tbody>
+    <tr>
+    <div>
+      <td>${producto.nombre}</td>
+      </div>
+      <div>
+      <img src=${producto.foto} class="fotoCarrito">
+      </div>
+      <div>
+      <td>Cantidad:${producto.cantidad}</td>
+      </div>
+      <button type="button" class="btn btn-dark m-3 fs-6" id="btnCardsRestar${producto.id}">-</button>
+      <button type="button" class="btn btn-dark m-3 fs-6" id="btnCardsBorrar${producto.id}">Quitar del carrito</button> 
     </div>
-    </div>
+
+  </tbody>
     `;
   });
   localStorage.setItem("carritoCompras", JSON.stringify(carritoCompras));
@@ -21,6 +26,14 @@ function agregarAlCarrito() {
   funcionBotonesRestar();
 }
 agregarAlCarrito();
+
+
+
+
+
+
+
+
 
 function quitarDelCarrito() {
   carritoCompras.forEach((producto) => {
@@ -36,7 +49,7 @@ function quitarDelCarrito() {
 }
 
 function carritoRestar(producto) {
-  let restarProd = carritoCompras.find((prod8) => prod8.id === producto.id);
+  carritoCompras.find((prod8) => prod8.id === producto.id);
   producto.cantidad--;
 
   agregarAlCarrito();
@@ -48,7 +61,6 @@ function funcionBotonesRestar() {
       .querySelector(`#btnCardsRestar${producto.id}`)
       .addEventListener("click", () => {
         carritoRestar(producto);
-        console.log("click");
       });
   });
 }
