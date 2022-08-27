@@ -181,3 +181,14 @@ span {
 .divCarritoCompras{
   display: flex;
 }
+
+.botonVolver {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.botonIrCarrito{
+  display: flex;
+  justify-content: center;
+}
