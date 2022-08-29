@@ -164,6 +164,7 @@ function carrito(producto) {
 }
 
 
+
 //Confirmacion de productos en el carrito
 function confirmacion() {
   const Toast = Swal.mixin({

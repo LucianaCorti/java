@@ -1,3 +1,4 @@
+//Operador Or
 let carritoCompras = JSON.parse(localStorage.getItem("carritoCompras")) || [];
 const carritoProductos = document.querySelector(".carritoCompras");
 
@@ -40,7 +41,7 @@ function quitarDelCarrito() {
       });
   });
 }
-
+//Operador ternario
 function carritoRestar(producto) {
   carritoCompras.find((prod8) => prod8.id === producto.id);
   producto.cantidad--;
