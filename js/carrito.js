@@ -1,5 +1,6 @@
 let carritoCompras = JSON.parse(localStorage.getItem("carritoCompras")) || [];
 const carritoProductos = document.querySelector(".carritoCompras");
+
 function agregarAlCarrito() {
   carritoProductos.innerHTML = "";
   carritoCompras.forEach((producto) => {
@@ -17,23 +18,14 @@ function agregarAlCarrito() {
       <button type="button" class="btn btn-dark m-3 fs-6" id="btnCardsRestar${producto.id}">-</button>
       <button type="button" class="btn btn-dark m-3 fs-6" id="btnCardsBorrar${producto.id}">Quitar del carrito</button> 
     </div>
-
-  </tbody>
     `;
   });
   localStorage.setItem("carritoCompras", JSON.stringify(carritoCompras));
+
   quitarDelCarrito();
   funcionBotonesRestar();
 }
 agregarAlCarrito();
-
-
-
-
-
-
-
-
 
 function quitarDelCarrito() {
   carritoCompras.forEach((producto) => {
@@ -51,7 +43,9 @@ function quitarDelCarrito() {
 function carritoRestar(producto) {
   carritoCompras.find((prod8) => prod8.id === producto.id);
   producto.cantidad--;
-
+  if (producto.cantidad < 1) {
+    producto.cantidad = 1;
+  }
   agregarAlCarrito();
 }
 
@@ -64,3 +58,12 @@ function funcionBotonesRestar() {
       });
   });
 }
+
+// let precioTotal = document.querySelector("#precioTotal");
+// function precioFinal() {
+//   precioTotal.innerText = carritoCompras.reduce(
+//     (acc, producto) => acc + producto.precio,
+//     0
+//   );
+// }
+// precioFinal();

@@ -20,11 +20,11 @@
   font-size: 1.2rem;
 }
 
-.divLogoCarrito{
+.divLogoCarrito {
   display: flex;
   flex-direction: row-reverse;
 }
-.imgCarrito{
+.imgCarrito {
   max-width: 3rem;
 }
 
@@ -67,7 +67,7 @@
   justify-content: space-between;
   flex-wrap: wrap;
 }
-.carritoCompras1{
+.carritoCompras1 {
   display: none;
 }
 
@@ -163,7 +163,6 @@ span {
 /* Carrito */
 .buttonCarrito {
   display: flex;
-  
 }
 
 .carritoCompras4 {
@@ -173,12 +172,12 @@ span {
   align-items: center;
 }
 
-.fotoCarrito{
+.fotoCarrito {
   margin-top: 0.5rem;
   max-width: 4rem;
 }
 
-.divCarritoCompras{
+.divCarritoCompras {
   display: flex;
 }
 
@@ -188,7 +187,7 @@ span {
   justify-content: flex-end;
 }
 
-.botonIrCarrito{
+.botonIrCarrito {
   display: flex;
   justify-content: center;
 }
