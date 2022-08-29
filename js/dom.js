@@ -160,7 +160,10 @@ function carrito(producto) {
   }
   agregarAlCarrito();
   confirmacion();
+
 }
+
+
 //Confirmacion de productos en el carrito
 function confirmacion() {
   const Toast = Swal.mixin({

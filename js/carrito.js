@@ -25,6 +25,7 @@ function agregarAlCarrito() {
   quitarDelCarrito();
   funcionBotonesRestar();
 }
+
 agregarAlCarrito();
 
 function quitarDelCarrito() {
@@ -43,10 +44,7 @@ function quitarDelCarrito() {
 function carritoRestar(producto) {
   carritoCompras.find((prod8) => prod8.id === producto.id);
   producto.cantidad--;
-  if (producto.cantidad < 1) {
-    producto.cantidad = 1;
-  }
-  agregarAlCarrito();
+  producto.cantidad < 1 ? (producto.cantidad = 1) : agregarAlCarrito();
 }
 
 function funcionBotonesRestar() {
@@ -58,12 +56,3 @@ function funcionBotonesRestar() {
       });
   });
 }
-
-// let precioTotal = document.querySelector("#precioTotal");
-// function precioFinal() {
-//   precioTotal.innerText = carritoCompras.reduce(
-//     (acc, producto) => acc + producto.precio,
-//     0
-//   );
-// }
-// precioFinal();
