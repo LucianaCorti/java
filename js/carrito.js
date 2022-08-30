@@ -1,4 +1,3 @@
-
 let carritoCompras = JSON.parse(localStorage.getItem("carritoCompras")) || [];
 const carritoProductos = document.querySelector(".carritoCompras");
 
@@ -57,13 +56,13 @@ function funcionBotonesRestar() {
   });
 }
 
-// const calcularCarrito = () => {
-//   const totalCarrito = carritoCompras.reduce(
-//     (acumulador, producto) => acumulador + producto.precio * producto.cantidad,
-//     0
-//   );
-//   let totalCompras = document.querySelector(".precioTotal");
-//   totalCompras.innerText = ("Precio Total $" + totalCarrito);
-// };
+const calcularCarrito = () => {
+  const totalCarrito = carritoCompras.reduce(
+    (acumulador, producto) => acumulador + producto.precio * producto.cantidad,
+    0
+  );
+  let totalCompras = document.querySelector(".precioTotal");
+totalCompras.innerText = "Precio Total $" + totalCarrito;
+};
 
-// calcularCarrito();
+calcularCarrito();
