@@ -13,6 +13,9 @@ const agregarAlCarrito = () => {
       <img src=${producto.foto} class="fotoCarrito">
       </div>
       <div>
+      <td>Precio:$${producto.precio}</td>
+      </div>
+      <div>
       <td>Cantidad:${producto.cantidad}</td>
       </div>
       <button type="button" class="btn btn-dark m-3 fs-6" id="btnCardsRestar${producto.id}">-</button>
@@ -56,13 +59,16 @@ function funcionBotonesRestar() {
   });
 }
 
-const calcularCarrito = () => {
-  const totalCarrito = carritoCompras.reduce(
-    (acumulador, producto) => acumulador + producto.precio * producto.cantidad,
-    0
-  );
-  let totalCompras = document.querySelector(".precioTotal");
-totalCompras.innerText = "Precio Total $" + totalCarrito;
-};
+if (document.title === "Carrito") {
+  const calcularCarrito = () => {
+    const totalCarrito = carritoCompras.reduce(
+      (acumulador, producto) =>
+        acumulador + producto.precio * producto.cantidad,
+      0
+    );
+    let totalCompras = document.querySelector(".precioTotal");
+    totalCompras.innerText = "Precio Total $" + totalCarrito;
+  };
 
-calcularCarrito();
+  calcularCarrito();
+}
