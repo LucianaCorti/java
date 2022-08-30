@@ -2,7 +2,7 @@
 let carritoCompras = JSON.parse(localStorage.getItem("carritoCompras")) || [];
 const carritoProductos = document.querySelector(".carritoCompras");
 
-function agregarAlCarrito() {
+const agregarAlCarrito = () => {
   carritoProductos.innerHTML = "";
   carritoCompras.forEach((producto) => {
     carritoProductos.innerHTML += `  <tbody>
@@ -25,7 +25,7 @@ function agregarAlCarrito() {
 
   quitarDelCarrito();
   funcionBotonesRestar();
-}
+};
 
 agregarAlCarrito();
 

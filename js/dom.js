@@ -2,11 +2,11 @@
 let tituloPrincipal = document.getElementById("tituloPrincipal");
 tituloPrincipal.innerText = "Tienda Online";
 
-function crearSubtitulo() {
+const crearSubtitulo = () => {
   const subtitulo = document.getElementById("subtitulo");
   subtitulo.innerHTML =
     "<p>A continuación vas a poder seleccionar los productos deseados:</p>";
-}
+};
 crearSubtitulo();
 //Array productos
 class ProductosTienda {
@@ -21,7 +21,7 @@ class ProductosTienda {
 
 const listaProductos = [];
 
-function agregandoArray() {
+const agregandoArray = () => {
   listaProductos.push(
     new ProductosTienda(
       "https://res.cloudinary.com/dvhvt4yk0/image/upload/v1660933176/hanna-balan-YasQvzPbGOQ-unsplash_1_pfna0z.jpg",
@@ -103,11 +103,11 @@ function agregandoArray() {
       9
     )
   );
-}
+};
 
 agregandoArray();
 //Productos ordenados
-function ordenarProductos() {
+const ordenarProductos = () => {
   listaProductos.sort((a, b) => {
     if (a.nombre > b.nombre) {
       return 1;
@@ -116,11 +116,11 @@ function ordenarProductos() {
       return -1;
     }
   });
-}
+};
 ordenarProductos();
 
 //Cards
-function crearTablaProductos() {
+const crearTablaProductos = () => {
   const tarjeta = document.querySelector(".cardProductos");
   listaProductos.forEach((producto) => {
     tarjeta.innerHTML += `<div class="card">
@@ -135,7 +135,7 @@ function crearTablaProductos() {
     `;
   });
   funcionBotones();
-}
+};
 
 crearTablaProductos();
 
@@ -149,7 +149,7 @@ function funcionBotones() {
   });
 }
 
-function carrito(producto) {
+const carrito = (producto) => {
   let agregado = carritoCompras.some((prod1) => prod1.id === producto.id);
   if (agregado === false) {
     producto.cantidad = 1;
@@ -160,13 +160,10 @@ function carrito(producto) {
   }
   agregarAlCarrito();
   confirmacion();
-
-}
-
-
+};
 
 //Confirmacion de productos en el carrito
-function confirmacion() {
+const confirmacion = () => {
   const Toast = Swal.mixin({
     toast: true,
     position: "top-end",
@@ -183,10 +180,10 @@ function confirmacion() {
     icon: "success",
     title: "Agregado al carrito",
   });
-}
+};
 
 //Form
-function crearForm() {
+const crearForm = () => {
   const formDatos = document.querySelector(".contact_form");
   formDatos.innerHTML = ` <div class="formulario">      
     <h3 class="text-center">Te quedaron dudas? Escribinos!</h3>
@@ -213,7 +210,7 @@ function crearForm() {
           <button type="button" class="btn btn-dark m-3 float-end" id="botonEnviar">Enviar</button>
       </form>
 </div>`;
-}
+};
 crearForm();
 
 //Local Storage Form
@@ -233,7 +230,7 @@ datosForm();
 boton.addEventListener("click", datosForm);
 boton.addEventListener("click", confirmacionEmail);
 
-function confirmacionEmail() {
+const confirmacionEmail = () => {
   const Toast = Swal.mixin({
     toast: true,
     position: "top-end",
