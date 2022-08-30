@@ -1,4 +1,4 @@
-//Operador Or
+
 let carritoCompras = JSON.parse(localStorage.getItem("carritoCompras")) || [];
 const carritoProductos = document.querySelector(".carritoCompras");
 
@@ -27,7 +27,6 @@ const agregarAlCarrito = () => {
 };
 
 agregarAlCarrito();
-
 function quitarDelCarrito() {
   carritoCompras.forEach((producto) => {
     document
@@ -40,6 +39,7 @@ function quitarDelCarrito() {
       });
   });
 }
+
 //Operador ternario
 function carritoRestar(producto) {
   carritoCompras.find((prod8) => prod8.id === producto.id);
@@ -57,11 +57,13 @@ function funcionBotonesRestar() {
   });
 }
 
-// const precioT = document.querySelector("#precioTotal");
-
 // const calcularCarrito = () => {
-//   let totalCarrito = carritoCompras.reduce(
+//   const totalCarrito = carritoCompras.reduce(
 //     (acumulador, producto) => acumulador + producto.precio * producto.cantidad,
 //     0
-//   ); carritoProductos.innerHTML = totalCarrito;
+//   );
+//   let totalCompras = document.querySelector(".precioTotal");
+//   totalCompras.innerText = ("Precio Total $" + totalCarrito);
 // };
+
+// calcularCarrito();
