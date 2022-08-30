@@ -191,3 +191,13 @@ span {
   display: flex;
   justify-content: center;
 }
+
+.divTotal{
+  display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+
+.precioTotal{
+font-size: 1.5rem;
+}

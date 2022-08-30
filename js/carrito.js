@@ -22,7 +22,6 @@ const agregarAlCarrito = () => {
     `;
   });
   localStorage.setItem("carritoCompras", JSON.stringify(carritoCompras));
-
   quitarDelCarrito();
   funcionBotonesRestar();
 };
@@ -57,3 +56,12 @@ function funcionBotonesRestar() {
       });
   });
 }
+
+// const precioT = document.querySelector("#precioTotal");
+
+// const calcularCarrito = () => {
+//   let totalCarrito = carritoCompras.reduce(
+//     (acumulador, producto) => acumulador + producto.precio * producto.cantidad,
+//     0
+//   ); carritoProductos.innerHTML = totalCarrito;
+// };

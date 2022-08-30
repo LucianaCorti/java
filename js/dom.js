@@ -230,7 +230,7 @@ datosForm();
 boton.addEventListener("click", datosForm);
 boton.addEventListener("click", confirmacionEmail);
 
-const confirmacionEmail = () => {
+function confirmacionEmail  ()  {
   const Toast = Swal.mixin({
     toast: true,
     position: "top-end",
