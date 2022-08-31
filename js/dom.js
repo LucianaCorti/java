@@ -182,6 +182,7 @@ const confirmacion = () => {
   });
 };
 
+
 //Form
 const crearForm = () => {
   const formDatos = document.querySelector(".contact_form");
@@ -230,7 +231,7 @@ datosForm();
 boton.addEventListener("click", datosForm);
 boton.addEventListener("click", confirmacionEmail);
 
-function confirmacionEmail  ()  {
+function confirmacionEmail() {
   const Toast = Swal.mixin({
     toast: true,
     position: "top-end",
