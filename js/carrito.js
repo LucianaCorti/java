@@ -39,6 +39,13 @@ function quitarDelCarrito() {
           (producto3) => producto3.id !== producto.id
         );
         agregarAlCarrito();
+        const totalCarrito = carritoCompras.reduce(
+          (acumulador, producto) =>
+            acumulador + producto.precio * producto.cantidad,
+          0
+        );
+        let totalCompras = document.querySelector(".precioTotal");
+        totalCompras.innerText = "Precio Total $" + totalCarrito;
       });
   });
 }
@@ -48,6 +55,14 @@ function carritoRestar(producto) {
   carritoCompras.find((prod8) => prod8.id === producto.id);
   producto.cantidad--;
   producto.cantidad < 1 ? (producto.cantidad = 1) : agregarAlCarrito();
+  const totalCarrito = carritoCompras.reduce(
+    (acumulador, producto) =>
+      acumulador + producto.precio * producto.cantidad,
+    0
+  );
+  let totalCompras = document.querySelector(".precioTotal");
+  totalCompras.innerText = "Precio Total $" + totalCarrito;
+});
 }
 
 function funcionBotonesRestar() {
