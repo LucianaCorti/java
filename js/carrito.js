@@ -19,7 +19,10 @@ const agregarAlCarrito = () => {
       <div>
       <td>Cantidad:${producto.cantidad}</td>
       </div>
+      <div>
+      <button type="button" class="btn btn-dark m-3 fs-6" id="btnCardsSumar${producto.id}">+</button>
       <button type="button" class="btn btn-dark m-3 fs-6" id="btnCardsRestar${producto.id}">-</button>
+      </div>
       <button type="button" class="btn btn-dark m-3 fs-6" id="btnCardsBorrar${producto.id}">Quitar del carrito</button> 
     </div>
     `;
@@ -27,6 +30,7 @@ const agregarAlCarrito = () => {
   localStorage.setItem("carritoCompras", JSON.stringify(carritoCompras));
   quitarDelCarrito();
   funcionBotonesRestar();
+  funcionBotonesSumar();
 };
 
 agregarAlCarrito();
@@ -51,6 +55,29 @@ function quitarDelCarrito() {
 }
 
 //Operador ternario
+function carritoSumar(producto) {
+  carritoCompras.find((prod9) => prod9.id === producto.id);
+  producto.cantidad++;
+  agregarAlCarrito();
+}
+
+function funcionBotonesSumar() {
+  carritoCompras.forEach((producto) => {
+    document
+      .querySelector(`#btnCardsSumar${producto.id}`)
+      .addEventListener("click", () => {
+        carritoSumar(producto);
+        const totalCarrito = carritoCompras.reduce(
+          (acumulador, producto) =>
+            acumulador + producto.precio * producto.cantidad,
+          0
+        );
+        let totalCompras = document.querySelector(".precioTotal");
+        totalCompras.innerText = "Precio Total $" + totalCarrito;
+      });
+  });
+}
+
 function carritoRestar(producto) {
   carritoCompras.find((prod8) => prod8.id === producto.id);
   producto.cantidad--;

@@ -182,7 +182,6 @@ const confirmacion = () => {
   });
 };
 
-
 //Form
 const crearForm = () => {
   const formDatos = document.querySelector(".contact_form");
@@ -280,5 +279,3 @@ function fondoInput() {
   });
 }
 fondoInput();
-
-
