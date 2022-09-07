@@ -28,6 +28,16 @@
   max-width: 3rem;
 }
 
+.loader{
+  width: 4rem;
+}
+
+.divLoader{
+  display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
 /* CARDS */
 .card-img-top {
   max-width: 20rem;

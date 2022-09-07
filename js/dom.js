@@ -8,11 +8,12 @@ const crearSubtitulo = () => {
     "<p>A continuación vas a poder seleccionar los productos deseados:</p>";
 };
 crearSubtitulo();
-//Array productos
 
+//Array productos
 let listaProductos = [];
 const tarjeta = document.querySelector(".cardProductos");
 let tarjetasArray = "";
+const spinner = document.querySelector(".divLoader");
 
 //Cards
 const crearTablaProductos = (producto) => {
@@ -36,6 +37,7 @@ const cargarProductos = async () => {
       listaProductos.forEach(
         (producto) => (tarjetasArray += crearTablaProductos(producto))
       );
+      spinner.innerHTML = "";
     });
   funcionBotones();
 };
