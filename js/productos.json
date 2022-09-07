@@ -1,0 +1,65 @@
+[
+  {
+    "foto": "https://res.cloudinary.com/dvhvt4yk0/image/upload/v1660933176/hanna-balan-YasQvzPbGOQ-unsplash_1_pfna0z.jpg",
+    "nombre": "Vela en cuenco de cerámica",
+    "descripcion": "Vela de cera de soja",
+    "precio": 800,
+    "id": 1
+  },
+  {
+    "foto": "https://res.cloudinary.com/dvhvt4yk0/image/upload/v1660933257/shashi-chaturvedula-0olnnoM1ieM-unsplash_1_wm58tz.jpg",
+    "nombre": "Sahumerios aroma a coco",
+    "descripcion": "Pack por 6 unidades",
+    "precio": 780,
+    "id": 2
+  },
+  {
+    "foto": "https://res.cloudinary.com/dvhvt4yk0/image/upload/v1660933747/oriento-Kmoc9lIexUc-unsplash_1_elsbpk.jpg",
+    "nombre": "Sahumador",
+    "descripcion": "Sahumador de cerámica",
+    "precio": 1200,
+    "id": 3
+  },
+  {
+    "foto": "https://res.cloudinary.com/dvhvt4yk0/image/upload/v1660936126/content-pixie-LIWTop_QiQE-unsplash_1_j27n0q.jpg",
+    "nombre": "Palo Santo",
+    "descripcion": "Pack por 3 unidades",
+    "precio": 650,
+    "id": 4
+  },
+  {
+    "foto": "https://res.cloudinary.com/dvhvt4yk0/image/upload/v1660935288/volant-P3nC8BaYKZs-unsplash_1_hblzvu.jpg",
+    "nombre": "Humidificador",
+    "descripcion": "Humidificador eléctrico",
+    "precio": 1600,
+    "id": 5
+  },
+  {
+    "foto": "https://res.cloudinary.com/dvhvt4yk0/image/upload/v1660938027/susanna-marsiglia-9Doy0urDBko-unsplash_1_gbpslo.jpg",
+    "nombre": "Porta sahumerio",
+    "descripcion": "Porta sahumerio de cerámica",
+    "precio": 850,
+    "id": 6
+  },
+  {
+    "foto": "https://res.cloudinary.com/dvhvt4yk0/image/upload/v1660937712/no-revisions-OAW0OCLn52I-unsplash_1_eiqjc4.jpg",
+    "nombre": "Vela de parafina",
+    "descripcion": "Vela de parafina en envase de vidrio",
+    "precio": 800,
+    "id": 7
+  },
+  {
+    "foto":  "https://res.cloudinary.com/dvhvt4yk0/image/upload/v1660938764/ray-kakte-vCc-F97wkHk-unsplash_1_btzfex.jpg",
+    "nombre": "Porta conitos",
+    "descripcion": "Porta conitos realizado en cerámica",
+    "precio": 860,
+    "id": 8
+  },
+  {
+    "foto":  "https://res.cloudinary.com/dvhvt4yk0/image/upload/v1660934916/pim-chayada-ko7osEfy4xo-unsplash_1_xai8nd.jpg",
+    "nombre": "Difusor",
+    "descripcion": "Varillas aromatizantes",
+    "precio": 860,
+    "id": 9
+  }
+]

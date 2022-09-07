@@ -9,121 +9,14 @@ const crearSubtitulo = () => {
 };
 crearSubtitulo();
 //Array productos
-class ProductosTienda {
-  constructor(foto, nombre, descripcion, precio, id) {
-    this.foto = foto;
-    this.nombre = nombre;
-    this.descripcion = descripcion;
-    this.precio = precio;
-    this.id = id;
-  }
-}
 
-const listaProductos = [];
-
-const agregandoArray = () => {
-  listaProductos.push(
-    new ProductosTienda(
-      "https://res.cloudinary.com/dvhvt4yk0/image/upload/v1660933176/hanna-balan-YasQvzPbGOQ-unsplash_1_pfna0z.jpg",
-      "Vela en cuenco de cerámica",
-      "Vela de cera de soja",
-      800,
-      1
-    )
-  );
-  listaProductos.push(
-    new ProductosTienda(
-      "https://res.cloudinary.com/dvhvt4yk0/image/upload/v1660933257/shashi-chaturvedula-0olnnoM1ieM-unsplash_1_wm58tz.jpg",
-      "Sahumerios aroma a coco",
-      "Pack por 6 unidades",
-      780,
-      2
-    )
-  );
-  listaProductos.push(
-    new ProductosTienda(
-      "https://res.cloudinary.com/dvhvt4yk0/image/upload/v1660933747/oriento-Kmoc9lIexUc-unsplash_1_elsbpk.jpg",
-      "Sahumador",
-      "Sahumador de cerámica",
-      1200,
-      3
-    )
-  );
-  listaProductos.push(
-    new ProductosTienda(
-      "https://res.cloudinary.com/dvhvt4yk0/image/upload/v1660936126/content-pixie-LIWTop_QiQE-unsplash_1_j27n0q.jpg",
-      "Palo Santo",
-      "Pack por 3 unidades",
-      650,
-      4
-    )
-  );
-  listaProductos.push(
-    new ProductosTienda(
-      "https://res.cloudinary.com/dvhvt4yk0/image/upload/v1660935288/volant-P3nC8BaYKZs-unsplash_1_hblzvu.jpg",
-      "Humidificador",
-      "Humidificador eléctrico",
-      1600,
-      5
-    )
-  );
-  listaProductos.push(
-    new ProductosTienda(
-      "https://res.cloudinary.com/dvhvt4yk0/image/upload/v1660938027/susanna-marsiglia-9Doy0urDBko-unsplash_1_gbpslo.jpg",
-      "Porta Sahumerio",
-      "Porta Sahumerio de cerámica",
-      850,
-      6
-    )
-  );
-  listaProductos.push(
-    new ProductosTienda(
-      "https://res.cloudinary.com/dvhvt4yk0/image/upload/v1660937712/no-revisions-OAW0OCLn52I-unsplash_1_eiqjc4.jpg",
-      "Vela parafina",
-      "Vela de parafina en envase de vidrio",
-      800,
-      7
-    )
-  );
-  listaProductos.push(
-    new ProductosTienda(
-      "https://res.cloudinary.com/dvhvt4yk0/image/upload/v1660938764/ray-kakte-vCc-F97wkHk-unsplash_1_btzfex.jpg",
-      "Porta Conitos",
-      "Porta Conitos realizado en cerámica",
-      860,
-      8
-    )
-  );
-  listaProductos.push(
-    new ProductosTienda(
-      "https://res.cloudinary.com/dvhvt4yk0/image/upload/v1660934916/pim-chayada-ko7osEfy4xo-unsplash_1_xai8nd.jpg",
-      "Difusor",
-      "Varillas aromatizantes",
-      860,
-      9
-    )
-  );
-};
-
-agregandoArray();
-//Productos ordenados
-const ordenarProductos = () => {
-  listaProductos.sort((a, b) => {
-    if (a.nombre > b.nombre) {
-      return 1;
-    }
-    if (a.nombre < b.nombre) {
-      return -1;
-    }
-  });
-};
-ordenarProductos();
+let listaProductos = [];
+const tarjeta = document.querySelector(".cardProductos");
+let tarjetasArray = "";
 
 //Cards
-const crearTablaProductos = () => {
-  const tarjeta = document.querySelector(".cardProductos");
-  listaProductos.forEach((producto) => {
-    tarjeta.innerHTML += `<div class="card">
+const crearTablaProductos = (producto) => {
+  return (tarjeta.innerHTML += `<div class="card">
     <img class="card-img-top" src=${producto.foto}>
     <div class="card-body">
       <h5 class="card-title text-decoration-underline">${producto.nombre}</h5>
@@ -132,12 +25,21 @@ const crearTablaProductos = () => {
       <button type="button" class="btn btn-dark m-3 fs-6" id="btnCards${producto.id}">Añadir al carrito</button>
     </div>
     </div>
-    `;
-  });
-  funcionBotones();
+    `);
 };
 
-crearTablaProductos();
+const cargarProductos = async () => {
+  await fetch("js/productos.json")
+    .then((Response) => Response.json())
+    .then((data) => {
+      listaProductos = data;
+      listaProductos.forEach(
+        (producto) => (tarjetasArray += crearTablaProductos(producto))
+      );
+    });
+  funcionBotones();
+};
+cargarProductos();
 
 function funcionBotones() {
   listaProductos.forEach((producto) => {
