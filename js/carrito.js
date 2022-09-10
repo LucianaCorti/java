@@ -114,3 +114,36 @@ if (document.title === "Carrito") {
 
   calcularCarrito();
 }
+
+const crearFormPago = () => {
+  const formPago = document.querySelector(".formularioPago");
+  formPago.innerHTML = ` <div class="formularioPago">      
+    <h3 class="text-center text-decoration-underline m-3 text-dark">Finalizar compra</h3>  
+      <div>
+            <p>
+                <span class="obligatorio">*</span>
+                <input type="text" name="introducir_nombre" id="nombre" required="obligatorio" placeholder="Nombre y apellido">
+            </p>
+            </div>
+            <div>
+            <p>
+                <span class="obligatorio">*</span>
+                <input type="email" name="introducir_email" id="email" required="obligatorio" placeholder="Email">
+            </p>   
+            </div>    
+            <div>
+            <p>
+                <span class="obligatorio">*</span>
+                <input type="tel" name="introducir_email" id="email" required="obligatorio" placeholder="Número de tarjeta">
+            </p>   
+            <p>
+            <span class="obligatorio">*</span>
+            <input type="date" name="introducir_email" id="email" required="obligatorio" placeholder="Vencimiento">
+        </p>  
+        
+            </div>              
+          <button type="button" class="btn btn-dark m-3 float-end" id="botonEnviar">Comprar</button>
+      </form>
+</div>`;
+};
+crearFormPago();
