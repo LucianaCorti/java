@@ -34,6 +34,7 @@ const agregarAlCarrito = () => {
 };
 
 agregarAlCarrito();
+
 function quitarDelCarrito() {
   carritoCompras.forEach((producto) => {
     document
@@ -54,7 +55,6 @@ function quitarDelCarrito() {
   });
 }
 
-//Operador ternario
 function carritoSumar(producto) {
   carritoCompras.find((prod9) => prod9.id === producto.id);
   producto.cantidad++;
@@ -115,35 +115,90 @@ if (document.title === "Carrito") {
   calcularCarrito();
 }
 
-const crearFormPago = () => {
-  const formPago = document.querySelector(".formularioPago");
-  formPago.innerHTML = ` <div class="formularioPago">      
+//Formulario pago
+
+if (document.title === "Carrito") {
+  const crearFormPago = () => {
+    const formPago = document.querySelector(".formularioPago");
+    formPago.innerHTML = ` <div class="formularioPago">      
     <h3 class="text-center text-decoration-underline m-3 text-dark">Finalizar compra</h3>  
       <div>
             <p>
                 <span class="obligatorio">*</span>
-                <input type="text" name="introducir_nombre" id="nombre" required="obligatorio" placeholder="Nombre y apellido">
+                <input type="text" name="introducir_nombre" id="nombrePago" required="obligatorio" placeholder="Nombre y apellido">
             </p>
             </div>
             <div>
             <p>
                 <span class="obligatorio">*</span>
-                <input type="email" name="introducir_email" id="email" required="obligatorio" placeholder="Email">
+                <input type="email" name="introducir_email" id="emailPago" required="obligatorio" placeholder="Email">
             </p>   
             </div>    
             <div>
             <p>
                 <span class="obligatorio">*</span>
-                <input type="tel" name="introducir_email" id="email" required="obligatorio" placeholder="Número de tarjeta">
+                <input type="tel" name="introducir_email" id="numTarjeta" required="obligatorio" placeholder="Número de tarjeta">
             </p>   
             <p>
             <span class="obligatorio">*</span>
-            <input type="date" name="introducir_email" id="email" required="obligatorio" placeholder="Vencimiento">
+            <input type="date" name="introducir_email" id="fechaVencimiento" required="obligatorio" placeholder="Vencimiento">
         </p>  
         
             </div>              
-          <button type="button" class="btn btn-dark m-3 float-end" id="botonEnviar">Comprar</button>
+          <button type="button" class="btn btn-dark m-3 float-end" id="botonComprar">Comprar</button>
       </form>
 </div>`;
+  };
+  crearFormPago();
+  finalizarCompra();
+}
+
+const nombrePago = document.querySelector("#nombrePago");
+const emailPago = document.querySelector("#emailPago");
+const numTarjeta = document.querySelector("#numTarjeta");
+const fechaVencimiento = document.querySelector("#fechaVencimiento");
+const botonComprar = document.querySelector("#botonComprar");
+
+const completarDatosCompra = () => {
+  if (
+    nombrePago.value !== "" &&
+    emailPago.value !== "" &&
+    numTarjeta.value !== "" &&
+    fechaVencimiento.value !== ""
+  ) {
+    return true;
+  } else {
+    return false;
+  }
 };
-crearFormPago();
+
+function finalizarCompra() {
+  carritoCompras.forEach((producto) => {
+    document.querySelector(`#botonComprar`).addEventListener("click", () => {
+      carritoCompras = carritoCompras.filter(
+        (producto10) => producto10.id !== producto.id
+      );
+      confirmacionCompra();
+      agregarAlCarrito();
+      const totalCarrito = carritoCompras.reduce(
+        (acumulador, producto) =>
+          acumulador + producto.precio * producto.cantidad,
+        0
+      );
+      let totalCompras = document.querySelector(".precioTotal");
+      totalCompras.innerText = "Precio Total $" + totalCarrito;
+    });
+  });
+}
+
+function confirmacionCompra() {
+  Swal.fire({
+    title: "Muchas gracias por su compra!",
+    text: "Pago aprobado",
+    imageUrl:
+      "https://res.cloudinary.com/dvhvt4yk0/image/upload/v1660940366/Logo_hogar_y_deco_organico_gris_zuadar.png",
+    imageWidth: 400,
+    imageHeight: 250,
+    imageAlt: "Custom image",
+  });
+}
