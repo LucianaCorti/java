@@ -102,25 +102,28 @@ function funcionBotonesRestar() {
 }
 
 if (document.title === "Carrito") {
-  const calcularCarrito = () => {
-    const totalCarrito = carritoCompras.reduce(
-      (acumulador, producto) =>
-        acumulador + producto.precio * producto.cantidad,
-      0
-    );
-    let totalCompras = document.querySelector(".precioTotal");
-    totalCompras.innerText = "Precio Total $" + totalCarrito;
-  };
+  if (carritoCompras.length >= 1) {
+    const calcularCarrito = () => {
+      const totalCarrito = carritoCompras.reduce(
+        (acumulador, producto) =>
+          acumulador + producto.precio * producto.cantidad,
+        0
+      );
+      let totalCompras = document.querySelector(".precioTotal");
+      totalCompras.innerText = "Precio Total $" + totalCarrito;
+    };
 
-  calcularCarrito();
+    calcularCarrito();
+  }
 }
 
 //Formulario pago
 
 if (document.title === "Carrito") {
-  const crearFormPago = () => {
-    const formPago = document.querySelector(".formularioPago");
-    formPago.innerHTML = ` <div class="formularioPago">      
+  if (carritoCompras.length >= 1) {
+    const crearFormPago = () => {
+      const formPago = document.querySelector(".formularioPago");
+      formPago.innerHTML = ` <div class="formularioPago">      
     <h3 class="text-center text-decoration-underline m-3 text-dark">Finalizar compra</h3>  
       <div>
             <p>
@@ -147,9 +150,10 @@ if (document.title === "Carrito") {
             <button type="button" class="btn btn-dark m-3 float-end" id="botonComprar">Comprar</button>
       </form>
 </div>`;
-  };
-  crearFormPago();
-  finalizarCompra();
+    };
+    crearFormPago();
+    finalizarCompra();
+  }
 }
 
 const nombrePago = document.querySelector("#nombrePago");
@@ -172,27 +176,29 @@ const completarDatosCompra = () => {
 };
 
 function finalizarCompra() {
-  if (completarDatosCompra() === true) {
-    carritoCompras.forEach((producto) => {
-      document.querySelector(`#botonComprar`).addEventListener("click", () => {
-        carritoCompras = carritoCompras.filter(
-          (producto10) => producto10.id !== producto.id
-        );
+  if(completarDatosCompra()===true){
+  carritoCompras.forEach((producto) => {
+    document.querySelector(`#botonComprar`).addEventListener("click", () => {
+      carritoCompras = carritoCompras.filter(
+        (producto10) => producto10.id !== producto.id
+      );
+      setTimeout(() => {
         confirmacionCompra();
-        agregarAlCarrito();
-        const totalCarrito = carritoCompras.reduce(
-          (acumulador, producto) =>
-            acumulador + producto.precio * producto.cantidad,
-          0
-        );
-        let totalCompras = document.querySelector(".precioTotal");
-        totalCompras.innerText = "Precio Total $" + totalCarrito;
-      });
-    });
-  }
-}
-finalizarCompra();
+      }, 500);
 
+      const totalCarrito = carritoCompras.reduce(
+        (acumulador, producto) =>
+          acumulador + producto.precio * producto.cantidad,
+        0
+      );
+      agregarAlCarrito();
+      let totalCompras = document.querySelector(".precioTotal");
+      totalCompras.innerText = "Precio Total $" + totalCarrito;
+    });
+  });
+}
+}
+finalizarCompra()
 function confirmacionCompra() {
   Swal.fire({
     title: "Muchas gracias por su compra!",

@@ -189,12 +189,14 @@ span {
 
 .divCarritoCompras {
   display: flex;
+
 }
 
 .botonVolver {
   display: flex;
-  align-items: center;
   justify-content: flex-end;
+  flex-direction: column-reverse;
+  align-items: center;
 }
 
 .botonIrCarrito {
@@ -210,6 +212,10 @@ span {
 
 .precioTotal {
   font-size: 1.5rem;
+}
+
+.mainCarrito{
+  min-height: 20rem;
 }
 
 /* Finalizar compra */
