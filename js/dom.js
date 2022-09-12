@@ -27,7 +27,9 @@ const crearTablaProductos = (producto) => {
     </div>
     </div>
     `);
+
 };
+
 
 const cargarProductos = async () => {
   await fetch("js/productos.json")
@@ -131,8 +133,10 @@ function datosForm() {
   borrarDatos();
 }
 datosForm();
+
 boton.addEventListener("click", datosForm);
 boton.addEventListener("click", confirmacionEmail);
+
 
 function confirmacionEmail() {
   const Toast = Swal.mixin({
@@ -183,3 +187,4 @@ function fondoInput() {
   });
 }
 fondoInput();
+

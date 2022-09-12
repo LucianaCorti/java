@@ -118,13 +118,14 @@ if (document.title === "Carrito") {
 }
 
 //Formulario pago
+const formPago = document.querySelector(".formularioPago");
 
 if (document.title === "Carrito") {
   if (carritoCompras.length >= 1) {
     const crearFormPago = () => {
-      const formPago = document.querySelector(".formularioPago");
       formPago.innerHTML = ` <div class="formularioPago">      
     <h3 class="text-center text-decoration-underline m-3 text-dark">Finalizar compra</h3>  
+    <form>
       <div>
             <p>
                 <span class="obligatorio">*</span>
@@ -147,58 +148,61 @@ if (document.title === "Carrito") {
             <input type="date" name="introducir_email" id="fechaVencimiento" required="obligatorio" placeholder="Vencimiento">
         </p>  
             </div>              
-            <button type="button" class="btn btn-dark m-3 float-end" id="botonComprar">Comprar</button>
-      </form>
-</div>`;
+            <button type="submit" class="btn btn-dark m-3 float-end" id="botonComprar">Comprar</button>
+            </form>
+    </div>`;
     };
     crearFormPago();
-    finalizarCompra();
+    const nombrePago = document.querySelector("#nombrePago");
+    const emailPago = document.querySelector("#emailPago");
+    const numTarjeta = document.querySelector("#numTarjeta");
+    const fechaVencimiento = document.querySelector("#fechaVencimiento");
+    const botonComprar = document.querySelector("#botonComprar");
+    finalizarCompra(
+      nombrePago,
+      emailPago,
+      numTarjeta,
+      fechaVencimiento,
+      botonComprar
+    );
   }
 }
 
-const nombrePago = document.querySelector("#nombrePago");
-const emailPago = document.querySelector("#emailPago");
-const numTarjeta = document.querySelector("#numTarjeta");
-const fechaVencimiento = document.querySelector("#fechaVencimiento");
-const botonComprar = document.querySelector("#botonComprar");
-
-const completarDatosCompra = () => {
+function finalizarCompra(
+  nombrePago,
+  emailPago,
+  numTarjeta,
+  fechaVencimiento,
+  botonComprar
+) {
   if (
     nombrePago.value !== "" &&
     emailPago.value !== "" &&
     numTarjeta.value !== "" &&
     fechaVencimiento.value !== ""
   ) {
-    return true;
-  } else {
-    return false;
-  }
-};
+    carritoCompras.forEach((producto) => {
+      botonComprar.addEventListener("click", () => {
+        carritoCompras = carritoCompras.filter(
+          (producto10) => producto10.id !== producto.id
+        );
+        setTimeout(() => {
+          confirmacionCompra();
+        }, 500);
 
-function finalizarCompra() {
-  if(completarDatosCompra()===true){
-  carritoCompras.forEach((producto) => {
-    document.querySelector(`#botonComprar`).addEventListener("click", () => {
-      carritoCompras = carritoCompras.filter(
-        (producto10) => producto10.id !== producto.id
-      );
-      setTimeout(() => {
-        confirmacionCompra();
-      }, 500);
-
-      const totalCarrito = carritoCompras.reduce(
-        (acumulador, producto) =>
-          acumulador + producto.precio * producto.cantidad,
-        0
-      );
-      agregarAlCarrito();
-      let totalCompras = document.querySelector(".precioTotal");
-      totalCompras.innerText = "Precio Total $" + totalCarrito;
+        const totalCarrito = carritoCompras.reduce(
+          (acumulador, producto) =>
+            acumulador + producto.precio * producto.cantidad,
+          0
+        );
+        agregarAlCarrito();
+        let totalCompras = document.querySelector(".precioTotal");
+        totalCompras.innerText = "Precio Total $" + totalCarrito;
+      });
     });
-  });
+  }
 }
-}
-finalizarCompra()
+
 function confirmacionCompra() {
   Swal.fire({
     title: "Muchas gracias por su compra!",
