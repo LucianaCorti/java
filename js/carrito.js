@@ -143,9 +143,8 @@ if (document.title === "Carrito") {
             <span class="obligatorio">*</span>
             <input type="date" name="introducir_email" id="fechaVencimiento" required="obligatorio" placeholder="Vencimiento">
         </p>  
-        
             </div>              
-          <button type="button" class="btn btn-dark m-3 float-end" id="botonComprar">Comprar</button>
+            <button type="button" class="btn btn-dark m-3 float-end" id="botonComprar">Comprar</button>
       </form>
 </div>`;
   };
@@ -173,23 +172,26 @@ const completarDatosCompra = () => {
 };
 
 function finalizarCompra() {
-  carritoCompras.forEach((producto) => {
-    document.querySelector(`#botonComprar`).addEventListener("click", () => {
-      carritoCompras = carritoCompras.filter(
-        (producto10) => producto10.id !== producto.id
-      );
-      confirmacionCompra();
-      agregarAlCarrito();
-      const totalCarrito = carritoCompras.reduce(
-        (acumulador, producto) =>
-          acumulador + producto.precio * producto.cantidad,
-        0
-      );
-      let totalCompras = document.querySelector(".precioTotal");
-      totalCompras.innerText = "Precio Total $" + totalCarrito;
+  if (completarDatosCompra() === true) {
+    carritoCompras.forEach((producto) => {
+      document.querySelector(`#botonComprar`).addEventListener("click", () => {
+        carritoCompras = carritoCompras.filter(
+          (producto10) => producto10.id !== producto.id
+        );
+        confirmacionCompra();
+        agregarAlCarrito();
+        const totalCarrito = carritoCompras.reduce(
+          (acumulador, producto) =>
+            acumulador + producto.precio * producto.cantidad,
+          0
+        );
+        let totalCompras = document.querySelector(".precioTotal");
+        totalCompras.innerText = "Precio Total $" + totalCarrito;
+      });
     });
-  });
+  }
 }
+finalizarCompra();
 
 function confirmacionCompra() {
   Swal.fire({
