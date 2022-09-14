@@ -1,4 +1,4 @@
-//Operados Or
+
 let carritoCompras = JSON.parse(localStorage.getItem("carritoCompras")) || [];
 const carritoProductos = document.querySelector(".carritoCompras");
 
