@@ -81,67 +81,7 @@
   display: none;
 }
 
-/* FORM */
-.contact_form {
-  width: 460px;
-  height: auto;
-  margin: 80px auto;
-  border-radius: 10px;
-  padding-top: 30px;
-  padding-bottom: 20px;
-  padding-left: 30px;
-}
 
-input {
-  background-color: #fbfbfb;
-  width: 408px;
-  height: 40px;
-  border-radius: 5px;
-  border-style: solid;
-  border-width: 1px;
-  border-color: black;
-  margin-top: 10px;
-  padding-left: 10px;
-  margin-bottom: 20px;
-}
-
-textarea {
-  background-color: #fbfbfb;
-  width: 405px;
-  height: 150px;
-  border-radius: 5px;
-  border-style: solid;
-  border-width: 1px;
-  border-color: black;
-  margin-top: 10px;
-  padding-left: 10px;
-  margin-bottom: 20px;
-  padding-top: 15px;
-}
-
-span {
-  color: black;
-}
-
-.aviso {
-  font-size: 13px;
-  color: #0e0e0e;
-}
-
-::-webkit-input-placeholder {
-  color: black;
-}
-
-::-webkit-textarea-placeholder {
-  color: black;
-}
-
-.fondoColor1 {
-  background-color: #c2b8a3;
-}
-.fondoColor2 {
-  background-color: #dad5ab;
-}
 
 /* Footer */
 .footer .divFooter {
@@ -231,6 +171,3 @@ span {
   align-items: center;
 }
 
-.formularioPago {
-  display: flex;
-}

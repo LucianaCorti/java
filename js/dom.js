@@ -27,9 +27,7 @@ const crearTablaProductos = (producto) => {
     </div>
     </div>
     `);
-
 };
-
 
 const cargarProductos = async () => {
   await fetch("js/productos.json")
@@ -87,104 +85,3 @@ const confirmacion = () => {
     title: "Agregado al carrito",
   });
 };
-
-//Form
-const crearForm = () => {
-  const formDatos = document.querySelector(".contact_form");
-  formDatos.innerHTML = ` <div class="formulario">      
-    <h3 class="text-center">Te quedaron dudas? Escribinos!</h3>
-      <form action="submeter-formulario.php" method="post">       
-            <p>
-              <label for="nombre" class="colocar_nombre">Nombre
-                <span class="obligatorio">*</span>
-              </label>
-                <input type="text" name="introducir_nombre" id="nombre" required="obligatorio" placeholder="Nombre">
-            </p>
-            <p>
-              <label for="email" class="colocar_email">Email
-                <span class="obligatorio">*</span>
-              </label>
-                <input type="email" name="introducir_email" id="email" required="obligatorio" placeholder="Email">
-            </p>   
-            <p>
-              <label for="mensaje" class="colocar_mensaje">Mensaje
-                <span class="obligatorio">*</span>
-              </label>                     
-              <textarea name="introducir_mensaje" class="texto_mensaje" id="mensaje" required="obligatorio" placeholder="Comentario"></textarea> 
-            </p> 
-            <button type="button" class="btn btn-dark m-3 float-end" id="botonBorrar">Borrar datos</button>                   
-          <button type="button" class="btn btn-dark m-3 float-end" id="botonEnviar">Enviar</button>
-      </form>
-</div>`;
-};
-crearForm();
-
-//Local Storage Form
-const nombre = document.querySelector("#nombre");
-const email = document.querySelector("#email");
-const mensaje = document.querySelector("#mensaje");
-const boton = document.querySelector("#botonEnviar");
-const botonBorrar = document.querySelector("#botonBorrar");
-
-function datosForm() {
-  localStorage.setItem("nombre formulario", nombre.value);
-  localStorage.setItem("email formulario", email.value);
-  localStorage.setItem("mensaje formulario", mensaje.value);
-  borrarDatos();
-}
-datosForm();
-
-boton.addEventListener("click", datosForm);
-boton.addEventListener("click", confirmacionEmail);
-
-
-function confirmacionEmail() {
-  const Toast = Swal.mixin({
-    toast: true,
-    position: "top-end",
-    showConfirmButton: false,
-    timer: 1500,
-    timerProgressBar: true,
-    didOpen: (toast) => {
-      toast.addEventListener("mouseenter", Swal.stopTimer);
-      toast.addEventListener("mouseleave", Swal.resumeTimer);
-    },
-  });
-
-  Toast.fire({
-    icon: "success",
-    title: "Mensaje Enviado",
-  });
-}
-
-//Recuperar datos Form
-function recuperarDatos() {
-  nombre.value = localStorage.getItem("nombre formulario");
-  email.value = localStorage.getItem("email formulario");
-  mensaje.value = localStorage.getItem("mensaje formulario");
-}
-recuperarDatos();
-
-//Borrar datos
-function borrarDatos() {
-  nombre.value = "";
-  email.value = "";
-  mensaje.value = "";
-}
-borrarDatos();
-botonBorrar.addEventListener("click", borrarDatos);
-
-//Fondos input
-const fomularios = document.querySelectorAll("input");
-function fondoInput() {
-  fomularios.forEach((formulario) => {
-    formulario.addEventListener("click", () => {
-      formulario.className = "fondoColor1";
-    });
-    formulario.addEventListener("blur", () => {
-      formulario.className = "fondoColor2";
-    });
-  });
-}
-fondoInput();
-
